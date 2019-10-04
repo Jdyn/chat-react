@@ -1,5 +1,7 @@
 import IUser from "../models/IUser"
 import { IMessageImage } from "../models/IMessage"
+import IChat from "../models/IChat"
+import moment from "moment"
 
 export function fullName(user: IUser): string {
   return `${user.first_name} ${user.last_name}`
@@ -33,4 +35,21 @@ export function imageConstraints(image: IMessageImage, max: number = MAX_IMAGE_S
     height: calculateConstraint(image.width, image.height),
     width: calculateConstraint(image.height, image.width)
   }
+}
+
+export function shortTimestamp(date: string): string {
+  const momentDate = moment(date)
+  const daysDifference = moment().diff(momentDate, "days")
+
+  if(daysDifference === 0) {
+    return momentDate.format("h:mm A")
+  } else if(daysDifference <= 7) {
+    return momentDate.format("ddd")
+  } else {
+    return momentDate.format("M/D/YY")
+  }
+}
+
+export function lastActive(chat: IChat): number {
+  return chat.last_message ? moment(chat.last_message!!.sent_at).unix() : 0
 }

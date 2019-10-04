@@ -6,13 +6,19 @@ interface MessagesAction extends Action {
   messages?: IMessage[]
 }
 
+const sortMessages = (messages: IMessage[]): IMessage[] => (
+  messages.sort((a, b): number => (
+    a.id - b.id
+  ))
+)
+
 export default (state: IMessage[] = [], action: MessagesAction): IMessage[] => {
   switch(action.type) {
     case ADD_MESSAGES:
-      return [
+      return sortMessages([
         ...state,
         ...action.messages as IMessage[]
-      ]
+      ])
     default:
       return state
   }

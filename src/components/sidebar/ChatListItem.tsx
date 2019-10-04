@@ -1,6 +1,7 @@
 import React from "react"
 import "./ChatListItem.scss"
 import IChat from "../../models/IChat"
+import { shortTimestamp } from "../../lib/ChatHelpers"
 
 interface ChatListItemProps {
   chat: IChat
@@ -32,7 +33,12 @@ export default class ChatListItem extends React.PureComponent<ChatListItemProps>
       <div className="chat-info">
         <div className="chat-title">
           {this.props.chat.title}
-          <span className="chat-timestamp">todo</span>
+          {
+            this.props.chat.last_message &&
+            <span className="chat-timestamp">
+              {shortTimestamp(this.props.chat.last_message.sent_at)}
+            </span>
+          }
         </div>
         
         {
