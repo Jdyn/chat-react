@@ -5,10 +5,14 @@ import App from "./components/App.tsx" // need the extension because yep
 import { Provider } from "react-redux"
 import { createStore } from "redux"
 import rootReducer from "./store"
+import { devToolsEnhancer } from "redux-devtools-extension"
 
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  devToolsEnhancer({
+    trace: process.env.NODE_ENV === "development",
+    traceLimit: 25
+  })
 )
 
 ReactDOM.render(
