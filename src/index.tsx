@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.scss"
-import App from "./components/App.tsx" // need the extension because yep
+import App from "./components/App" // need the extension because yep
 import { Provider } from "react-redux"
 import { createStore } from "redux"
 import rootReducer from "./store"
