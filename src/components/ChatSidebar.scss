@@ -1,0 +1,45 @@
+@import "../variables.scss";
+
+.chat-sidebar {
+  width: 30%;
+  overflow-y: auto;
+  background: lighten($background, 5%);
+
+  .chat-header {
+    position: sticky;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    top: 0;
+    height: 53px;
+
+    display: flex;
+    align-items: center;
+
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    padding: 10px 15px;
+    padding-top: 12px;
+    width: 100%;
+    background: lighten($background, 2%);
+    border-bottom: 1px solid $divider-color;
+
+    .logo {
+      $logo-size: 30px;
+      display: inline-block;
+      vertical-align: middle;
+      background-image: url("../assets/logo.png");
+      height: $logo-size;
+      width: $logo-size;
+      background-size: $logo-size;
+      margin-right: 5px;
+    }
+
+    .logout {
+      text-align: right;
+      text-decoration: none;
+      margin-left: auto;
+      color: $foreground;
+    }
+  }
+}

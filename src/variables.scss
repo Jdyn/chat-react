@@ -1,0 +1,9 @@
+$academus-black: #212121;
+$academus-green: #6DA66D;
+$soft-white: #FEFEFE;
+
+$background: $academus-black;
+$foreground: $soft-white;
+$foreground-muted: darken($foreground, 40%);
+$accent: $academus-green;
+$divider-color: darken($foreground, 75%);

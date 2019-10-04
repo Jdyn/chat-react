@@ -1,0 +1,2 @@
+export const SELECT_CHAT = "SELECT_CHAT"
+export const DESELECT_CHAT = "DESELECT_CHAT"

@@ -1,0 +1,56 @@
+@import "../variables";
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+
+  .chat-detail {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+
+    .chat-title {
+      display: flex;
+      align-items: center;
+
+      height: 53px;
+      flex-shrink: 0;
+      padding: 0 15px;
+      background: lighten($background, 2%);
+      border-bottom: 1px solid $divider-color;
+      border-left: 1px solid $divider-color;
+
+      .chat-photo {
+        height: 35px;
+        width: 35px;
+        background-size: 35px !important;
+        margin-right: 10px;
+        border-radius: 100%;
+        background: $foreground;
+      }
+
+      .chat-details {
+        display: flex;
+        flex-direction: column;
+
+        .members-text {
+          color: $foreground-muted;
+          font-size: 0.8em;
+          margin-top: 2px;
+        }
+      }
+    }
+
+    .message-history {
+      max-height: 100%;
+      flex-grow: 1;
+      padding: 0 15px;
+      overflow-y: auto;
+      word-break: break-word;
+    }
+  }
+}
