@@ -1,1 +1,1 @@
-export const ADD_MESSAGES = "ADD_MESSAGES"
+export const ADD_MESSAGES = "messages/ADD_MESSAGES"

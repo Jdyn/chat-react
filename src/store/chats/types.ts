@@ -1,1 +1,1 @@
-export const CHATS_LOADED = "CHATS_LOADED"
+export const CHATS_LOADED = "chats/CHATS_LOADED"
