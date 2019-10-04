@@ -17,7 +17,7 @@ export default (state: IMessage[] = [], action: MessagesAction): IMessage[] => {
     case ADD_MESSAGES:
       return sortMessages([
         ...state,
-        ...action.messages as IMessage[]
+        ...action.messages!!.filter(msg => !state.some(m => m.id === msg.id)) // dedupe
       ])
     default:
       return state

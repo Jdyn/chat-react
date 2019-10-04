@@ -3,6 +3,7 @@ import { EventEmitter } from "events"
 import Constants from "./Constants"
 import IChat from "../models/IChat"
 import IMessage from "../models/IMessage"
+import IUser from "../models/IUser"
 
 interface MessagePayload {
   chatId: IChat["id"]
@@ -24,6 +25,7 @@ export default class ChatSocket extends EventEmitter {
     this.socket.on("chats", this.onChats.bind(this))
     this.socket.on("messages", this.onMessages.bind(this))
     this.socket.on("message", this.onMessage.bind(this))
+    this.socket.on("authenticated", this.onAuthenticated.bind(this))
   }
 
   fetchOldMessages(chatId: IChat["id"], before = 9999999999) {
@@ -46,5 +48,9 @@ export default class ChatSocket extends EventEmitter {
   private onMessage(payload: MessagePayload) {
     const message = { ...payload.message, chat_id: payload.chatId }
     this.emit("messages", [ message ])
+  }
+
+  private onAuthenticated(user: IUser) {
+    this.emit("authenticated", user)
   }
 }

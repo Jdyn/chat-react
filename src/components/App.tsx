@@ -9,16 +9,21 @@ import ChatSidebar from "./sidebar/ChatSidebar"
 import { selectChat } from "../store/selectedChat/actions"
 import IMessage from "../models/IMessage"
 import { addMessages } from "../store/messages/actions"
+import { setCurrentUser } from "../store/user/actions"
+import { selectMessagesForCurrentChat } from "../store/selectors"
 import ChatBody from "./body/ChatBody"
+import IUser from "../models/IUser"
 
 interface AppProps {
   chats: IChat[]
   messages: IMessage[]
   selectedChat: IChat["id"] | null
+  currentChatMessages: IMessage[]
 
   chatsLoaded: typeof chatsLoaded
   selectChat: typeof selectChat
   addMessages: typeof addMessages
+  setCurrentUser: typeof setCurrentUser
 }
 
 interface AppState {
@@ -37,18 +42,16 @@ class App extends React.PureComponent<AppProps, AppState> {
       this.props.addMessages(messages)
     })
 
+    socket.on("authenticated", (user: IUser) => {
+      this.props.setCurrentUser(user)
+    })
+
     this.setState({ socket })
   }
 
   onChatSelected(chat: IChat) {
     this.props.selectChat(chat.id)
-
-    if(this.messagesForChat(chat.id).length === 0)
-      this.state.socket.fetchOldMessages(chat.id)
-  }
-
-  messagesForChat(id: IChat["id"]) {
-    return this.props.messages.filter(message => (message.chat_id === id))
+    this.state.socket.fetchOldMessages(chat.id)
   }
 
   render() {
@@ -64,7 +67,7 @@ class App extends React.PureComponent<AppProps, AppState> {
           !!this.props.selectedChat &&
           <ChatBody
             chat={this.props.chats.filter(chat => (chat.id === this.props.selectedChat))[0]}
-            messages={this.messagesForChat(this.props.selectedChat)}
+            messages={this.props.currentChatMessages}
           />
         }
       </div>
@@ -75,10 +78,11 @@ class App extends React.PureComponent<AppProps, AppState> {
 const mapStateToProps = (state: ReturnType<typeof rootReducer>) => ({
   chats: state.chats,
   messages: state.messages,
-  selectedChat: state.selectedChat
+  selectedChat: state.selectedChat,
+  currentChatMessages: selectMessagesForCurrentChat(state)
 })
 
 export default connect(
   mapStateToProps,
-  { chatsLoaded, selectChat, addMessages }
+  { chatsLoaded, selectChat, addMessages, setCurrentUser }
 )(App)
