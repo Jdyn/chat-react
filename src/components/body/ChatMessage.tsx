@@ -1,7 +1,7 @@
 import React from "react"
 import IMessage from "../../models/IMessage"
 import "./ChatMessage.scss"
-import { fullName } from "../../lib/ChatHelpers"
+import { fullName, imageConstraints } from "../../lib/ChatHelpers"
 
 interface ChatMessageProps {
   message: IMessage
@@ -24,13 +24,18 @@ export default class ChatMessage extends React.PureComponent<ChatMessageProps> {
         </div>
 
         <div className="message-text">
+          {this.props.message.message}
           {
             !!this.props.message.image &&
-            <a href={this.props.message.image.url} target="_blank">
-              Photo (todo)
+            <a className="message-image" href={this.props.message.image.url} target="_blank" rel="noopener noreferrer">
+              <img
+                className="chat-image"
+                src={this.props.message.image.url}
+                style={imageConstraints(this.props.message.image)}
+                alt={this.props.message.message || `Image uploaded by ${fullName(this.props.message.user)}`}
+              />
             </a>
           }
-          {this.props.message.message}
         </div>
       </div>
     )

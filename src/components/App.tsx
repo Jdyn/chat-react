@@ -8,7 +8,7 @@ import { chatsLoaded } from "../store/chats/actions"
 import ChatSidebar from "./sidebar/ChatSidebar"
 import { selectChat } from "../store/selectedChat/actions"
 import IMessage from "../models/IMessage"
-import { addMessage, addMessages } from "../store/messages/actions"
+import { addMessages } from "../store/messages/actions"
 import ChatBody from "./body/ChatBody"
 
 interface AppProps {

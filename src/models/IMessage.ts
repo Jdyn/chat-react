@@ -1,7 +1,7 @@
 import IUser from "./IUser"
 import IMention from "./IMention"
 
-interface IMessageImage {
+export interface IMessageImage {
   url: string
   height: number
   width: number
@@ -18,4 +18,6 @@ export default interface IMessage {
   image?: IMessageImage
   reply_to_message?: IMessage
   chat_id: number
+
+  sending: boolean
 }
