@@ -1,7 +1,7 @@
 import React from "react"
 import "./ChatBody.scss"
-import IChat from "../models/IChat"
-import IMessage from "../models/IMessage"
+import IChat from "../../models/IChat"
+import IMessage from "../../models/IMessage"
 import ChatMessage from "./ChatMessage"
 import ChatComposer from "./ChatComposer"
 

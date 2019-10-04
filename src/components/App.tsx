@@ -5,11 +5,11 @@ import IChat from "../models/IChat"
 import { connect } from "react-redux"
 import rootReducer from "../store"
 import { chatsLoaded } from "../store/chats/actions"
-import ChatSidebar from "./ChatSidebar"
+import ChatSidebar from "./sidebar/ChatSidebar"
 import { selectChat } from "../store/selectedChat/actions"
 import IMessage from "../models/IMessage"
 import { addMessage, addMessages } from "../store/messages/actions"
-import ChatBody from "./ChatBody"
+import ChatBody from "./body/ChatBody"
 
 interface AppProps {
   chats: IChat[]
@@ -42,7 +42,7 @@ class App extends React.PureComponent<AppProps, AppState> {
 
   onChatSelected(chat: IChat) {
     this.props.selectChat(chat.id)
-    
+
     if(this.messagesForChat(chat.id).length === 0)
       this.state.socket.fetchOldMessages(chat.id)
   }

@@ -1,7 +1,7 @@
 import React from "react"
-import IMessage from "../models/IMessage"
+import IMessage from "../../models/IMessage"
 import "./ChatMessage.scss"
-import { fullName } from "../lib/ChatHelpers"
+import { fullName } from "../../lib/ChatHelpers"
 
 interface ChatMessageProps {
   message: IMessage

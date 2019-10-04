@@ -1,6 +1,6 @@
 import React from "react"
 import "./ChatSidebar.scss"
-import IChat from "../models/IChat"
+import IChat from "../../models/IChat"
 import ChatList from "./ChatList"
 
 interface ChatSidebarProps {

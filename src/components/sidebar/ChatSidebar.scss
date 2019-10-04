@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../../variables.scss";
 
 .chat-sidebar {
   width: 30%;
@@ -28,7 +28,7 @@
       $logo-size: 30px;
       display: inline-block;
       vertical-align: middle;
-      background-image: url("../assets/logo.png");
+      background-image: url("../../assets/logo.png");
       height: $logo-size;
       width: $logo-size;
       background-size: $logo-size;

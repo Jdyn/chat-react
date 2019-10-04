@@ -1,6 +1,6 @@
 import React from "react"
 import "./ChatListItem.scss"
-import IChat from "../models/IChat"
+import IChat from "../../models/IChat"
 
 interface ChatListItemProps {
   chat: IChat
