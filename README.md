@@ -20,22 +20,22 @@ This app is a work in progress and is very barebones. Feel free to contribute to
 - [ ] Authentication
   - Kind of done; just need to be logged into chat.academus.io first
 - [ ] Logout
-- [ ] Chats list
+- [ ] Chats list ([#1](https://github.com/Academus/chat-react/issues/1))
   - [x] Chat retrieval
   - [ ] Chat sorting
   - [ ] "x is typing..."
   - [ ] Timestamps
-- [ ] Message history
+- [ ] Message history ([#2](https://github.com/Academus/chat-react/issues/2))
   - [x] Message retrieval
   - [ ] Message sorting
   - [ ] Timestamps
   - [ ] Staff badges
-- [ ] Message composing
+- [ ] Message composing ([#3](https://github.com/Academus/chat-react/issues/3))
   - [x] Composer component
   - [ ] Message sending
   - [ ] Photo sending
   - [ ] Send typing indicator
-- [ ] UI tests
+- [ ] UI tests ([#4](https://github.com/Academus/chat-react/issues/4))
 
 ## License
 
