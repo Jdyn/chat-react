@@ -1,12 +1,13 @@
-import { createSelector } from "reselect"
-import rootReducer from "."
-import IChat from "../models/IChat"
-import IMessage from "../models/IMessage"
+import { createSelector } from "reselect";
+import { AppState } from ".";
+import IChat from "../models/IChat";
+import IMessage from "../models/IMessage";
 
-const selectSelectedChat = (state: ReturnType<typeof rootReducer>): IChat["id"] | null => state.selectedChat
-const selectMessages = (state: ReturnType<typeof rootReducer>): IMessage[] => state.messages
+const selectSelectedChat = (state: AppState): IChat["id"] | null =>
+  state.selectedChat;
+const selectMessages = (state: AppState): IMessage[] => state.messages;
 
 export const selectMessagesForCurrentChat = createSelector(
-  [ selectSelectedChat, selectMessages ],
+  [selectSelectedChat, selectMessages],
   (chat, messages) => messages.filter(msg => msg.chat_id === chat)
-)
+);
