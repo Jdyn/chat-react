@@ -1,1 +1,0 @@
-export const USER_LOADED = "user/USER_LOADED"

@@ -1,23 +1,21 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import "./index.scss"
-import App from "./components/App" // need the extension because yep
-import { Provider } from "react-redux"
-import { createStore } from "redux"
-import rootReducer from "./store"
-import { devToolsEnhancer } from "redux-devtools-extension"
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import configureStore from './store/configureStore';
+import App from './containers/AppContainer';
 
-const store = createStore(
-  rootReducer,
-  devToolsEnhancer({
-    trace: process.env.NODE_ENV === "development",
-    traceLimit: 25
-  })
-)
+const persistedState = {};
+const store = configureStore(persistedState);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  document.getElementById("root")
-)
+const app = (
+  <>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </>
+);
+
+render(app, document.getElementById('root'));

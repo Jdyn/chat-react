@@ -1,14 +1,10 @@
-import { combineReducers } from "redux";
-import chats from "./chats/reducers";
-import messages from "./messages/reducers";
-import selectedChat from "./selectedChat/reducers";
-import user from "./user/reducers";
+import { combineReducers } from 'redux';
+import chat from './reducers/chat';
+import session from './reducers/session';
 
 const root = combineReducers({
-  chats,
-  messages,
-  selectedChat,
-  user
+  chat,
+  session
 });
 
 export type AppState = ReturnType<typeof root>;
