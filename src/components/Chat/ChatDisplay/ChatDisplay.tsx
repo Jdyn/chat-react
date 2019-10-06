@@ -6,30 +6,32 @@ import ChatComposer from './ChatComposer';
 import './ChatDisplay.scss';
 
 interface Props {
-  chat: IChat | null;
-  messages: [];
+  currentChat: IChat | null;
 }
 
 const ChatDisplay = (props: Props) => {
-  const { chat, messages } = props;
+  const { currentChat } = props;
 
   return (
     <div className="chat-body">
       <div className="chat-detail">
-        {chat && (
-          <div className="chat-title">
-            <div
-              className="chat-photo"
-              style={{
-                backgroundImage: `url("${chat.image_url}")`
-              }}
-            />
-            <div className="chat-details">
-              <span className="title-text">{chat.title}</span>
-              <span className="members-text">{chat.member_count} students</span>
-            </div>
-          </div>
-        )}
+        <div className="chat-display-header">
+          {currentChat && (
+            <>
+              <div
+                className="chat-photo"
+                style={{
+                  backgroundImage: `url("${currentChat.image_url}")`
+                }}
+              />
+              <div className="chat-details">
+                <span className="title-text">{currentChat.title}</span>
+                <span className="members-text">{currentChat.member_count} students</span>
+              </div>
+            </>
+          )}
+        </div>
+
         <div className="message-history">
           {/* {messages.map(message => (
             <ChatMessage key={message.id} message={message} />

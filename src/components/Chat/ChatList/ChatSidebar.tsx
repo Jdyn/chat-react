@@ -3,25 +3,25 @@ import './ChatSidebar.scss';
 import IChat from '../../../models/IChat';
 import ChatList from './ChatList';
 
-interface ChatSidebarProps {
-  chat: IChat[];
-  setChat: (chat: IChat) => void;
+interface Props {
+  chats: IChat[];
 }
 
-export default class ChatSidebar extends React.PureComponent<ChatSidebarProps> {
-  render() {
-    return (
-      <div className="chat-sidebar">
-        <div className="chat-header">
-          <div className="logo" />
-          <span>Academus Chat</span>
-          <a href="/logout" className="logout material-icons" title="Logout">
-            exit_to_app
-          </a>
-        </div>
-
-        <ChatList {...this.props} />
+const ChatSidebar = (props: Props) => {
+  const { chats } = props;
+  return (
+    <div className="chat-sidebar">
+      <div className="chat-header">
+        <div className="logo" />
+        <span>Academus Chat</span>
+        <a href="/logout" className="logout material-icons" title="Logout">
+          exit_to_app
+        </a>
       </div>
-    );
-  }
-}
+
+      <ChatList chats={chats} />
+    </div>
+  );
+};
+
+export default ChatSidebar;

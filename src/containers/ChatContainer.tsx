@@ -12,7 +12,7 @@ interface Props {
 
 class ChatContainer extends PureComponent<Props> {
   render() {
-    return <div>okok</div>; //<Chat {...this.props} />;
+    return <Chat {...this.props} />;
   }
 }
 
@@ -21,7 +21,6 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  updateCurrentChat: () => {}
 });
 
 export default connect(

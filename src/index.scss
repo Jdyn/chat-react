@@ -1,17 +1,18 @@
-@import "../variables.scss";
-@import "../normalize.scss";
+@import './variables.scss';
+@import './normalize.scss';
 
-.app {
-  max-width: 1600px;
-  height: 100%;
-  background: lighten($background, 2%);
-  box-shadow: 0px 0px 5px lighten($background, 2%);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-}
+// .app {
+//   height: 100%;
+//   background: lighten($background, 2%);
+//   box-shadow: 0px 0px 5px lighten($background, 2%);
+//   margin: 0 auto;
+//   max-width: 1600px;
+//   display: flex;
+//   flex-direction: row;
+// }
 
-*, * * {
+*,
+* * {
   box-sizing: border-box;
   scrollbar-color: #999 #353535;
   scrollbar-width: thin;
@@ -22,12 +23,13 @@
   width: 100%;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   width: 100%;
   overflow: hidden;
   background: $background;
-  font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+  font-family: 'Avenir Next', Arial, Helvetica, sans-serif;
   color: $foreground;
 }
 

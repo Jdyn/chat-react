@@ -1,0 +1,9 @@
+.chat-root {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 2.5fr;
+  height: 100vh;
+//   max-width: 1600px;
+//   margin: 0 auto;
+  grid-area: "sidebar display"
+}

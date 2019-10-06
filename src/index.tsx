@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import App from './containers/AppContainer';
+import './index.scss';
 
 const persistedState = {};
 const store = configureStore(persistedState);
