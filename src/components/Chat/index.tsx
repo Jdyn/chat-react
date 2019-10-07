@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import IChat from '../../models/IChat';
-import IMessage from '../../models/IMessage';
 import ChatSidebar from './ChatList/ChatSidebar';
 import ChatDisplay from './ChatDisplay/ChatDisplay';
 import './Chat.scss';

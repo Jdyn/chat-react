@@ -16,14 +16,14 @@ export const ChatList = (props: Props) => {
 
   return (
     <div className="chats-list">
-      {/* {chats.map(chat => (
+      {[{id: 1, title: "Hello."}, {id: 2}, {id: 3}].map(chat => (
         <ChatListItem
           key={chat.id}
           chat={chat}
-          onSelect={onChatSelected}
-          selected={chat.id === selectedChat}
+          // onSelect={onChatSelected}
+          selected={chat.id === 1}
         />
-      ))} */}
+      ))}
     </div>
   );
 };

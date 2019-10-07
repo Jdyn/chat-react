@@ -1,4 +1,4 @@
-@import "../../../variables";
+@import '../../../styles/variables.scss';
 
 .chat-body {
   display: flex;
@@ -22,7 +22,7 @@
       flex-shrink: 0;
       padding: 15px;
       background: lighten($background, 2%);
-      box-shadow: 0px 3px 6px rgba(0,0,0,.2);
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
       // border-bottom: 1px solid $divider-color;
       // border-left: 1px solid $divider-color;
 

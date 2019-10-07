@@ -1,10 +1,10 @@
-@import "../../../variables.scss";
+@import '../../../styles/variables.scss';
 
 .chat-message {
   width: 100%;
   display: flex;
   margin-bottom: 3px;
-  
+
   &:not(.same-user) {
     margin-top: 15px;
   }
@@ -29,7 +29,7 @@
     height: $user-photo-size;
     background-size: $user-photo-size !important;
     border-radius: 100%;
-    background: #FFF;
+    background: #fff;
     margin-right: 10px;
   }
 
