@@ -17,7 +17,7 @@ export const ChatListItem = (props: Props) => {
     onSelect && onSelect(chat);
   };
 
-  const lastMessage = useMemo(() => chat.last_message || ({} as IMessage), [chat.last_message]);
+  const lastMessage = useMemo(() => chat.last_message as IMessage || ({} as IMessage), [chat.last_message]);
 
   return (
     <div className={`chat-list-item ${selected ? 'selected' : ''}`} onClick={handleClick}>
@@ -38,8 +38,8 @@ export const ChatListItem = (props: Props) => {
           <div>
             {lastMessage.user ? (
               <>
-                <span className="user-name accent">{`${lastMessage.user.first_name}: `}</span>
-                <span>{lastMessage.message}</span>
+                <span className="user-name accent">{`${lastMessage.user.first_name}`}</span>
+                <span>: {lastMessage.message}</span>
               </>
             ) : (
               <span>{'You were added to this chat'}</span>
